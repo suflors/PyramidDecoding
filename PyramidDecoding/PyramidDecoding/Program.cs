@@ -13,11 +13,22 @@
 				string[] parts = line.Split(' ');
 				words.Add(int.Parse(parts[0]), parts[1]);
 			}
-			for (int i = 0; i < words.Count; i++)
+			string output = "";
+			int outputtedWords = 0;
+			int count = 1;
+			for (int i = 1; i < words.Count + 1; i++)
 			{
-				var word = words[i + 1];
-				Console.WriteLine($"{i + 1} {word}");
+				if (count - outputtedWords > 0)
+				{
+					count = 1;
+					outputtedWords++;
+					output += words[i] + ' ';
+				} else
+				{
+					count++;
+				}
 			}
+			Console.WriteLine(output);
 		}
 	}
 }
