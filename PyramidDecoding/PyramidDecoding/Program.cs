@@ -19,7 +19,7 @@
 			while (run)
 			{
 				int lastInCurrentStep = step * (step + 1) / 2;
-				if (lastInCurrentStep <= words.Count())
+				if (lastInCurrentStep <= words.Count)
 				{
 					output += words[lastInCurrentStep] + ' ';
 					step++;
