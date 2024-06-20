@@ -14,18 +14,18 @@
 				words.Add(int.Parse(parts[0]), parts[1]);
 			}
 			string output = "";
-			int outputtedWords = 0;
-			int count = 1;
-			for (int i = 1; i < words.Count + 1; i++)
+			int step = 1;
+			bool run = true;
+			while (run)
 			{
-				if (count - outputtedWords > 0)
+				int lastInCurrentStep = step * (step + 1) / 2;
+				if (lastInCurrentStep <= words.Count())
 				{
-					count = 1;
-					outputtedWords++;
-					output += words[i] + ' ';
+					output += words[lastInCurrentStep] + ' ';
+					step++;
 				} else
 				{
-					count++;
+					run = false;
 				}
 			}
 			Console.WriteLine(output);
